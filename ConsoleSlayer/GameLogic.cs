@@ -206,19 +206,23 @@ namespace ConsoleSlayer
                                 if (game.Player.Ammo < game.Player.MaxAmmo)
                                 {
                                     game.Player.PickUpAmmo(5);
+                                    game.PlaySoundEffect(SoundEffectType.AmmoPickup);
                                 }
                                 break;
                             case ItemType.Medikit:
                                 if (game.Player.Health < game.Player.MaxHealth)
                                 {
                                     game.Player.PickUpHealth(25);
+                                    game.PlaySoundEffect(SoundEffectType.HealthPickup);
                                 }
                                 break;
                             case ItemType.ToxicWaste:
                                 game.Player.TakeDamage(5);
+                                game.PlaySoundEffect(SoundEffectType.Pain);
                                 break;
                             case ItemType.BFGCell:
                                 game.Player.PickUpBFGCell();
+                                game.PlaySoundEffect(SoundEffectType.BFGPickUp);
                                 break;
                         }
                     }
@@ -235,7 +239,6 @@ namespace ConsoleSlayer
                 if (item.Type ==ItemType.ToxicWaste)
                 {
                     demon.TakeDamage(5);
-                    game.PlaySoundEffect(SoundEffectType.Pain);
                 }
             }
         }

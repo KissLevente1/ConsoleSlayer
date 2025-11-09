@@ -48,32 +48,35 @@ namespace ConsoleSlayer
             switch (soundEffectType)
             {
                 case SoundEffectType.Door:
-                    sfxPlayer.URL = Path.GetFullPath("Audio/door.mp3");
+                    sfxPlayer.URL = Path.GetFullPath(@"../../../src/Audio/door.mp3");
                     break;
                 case SoundEffectType.Shoot:
-                    sfxPlayer.URL = "Audio/shoot.wav";
+                    sfxPlayer.URL = Path.GetFullPath(@"../../../src/Audio/shoot.wav");
                     break;
                 case SoundEffectType.BFGPickUp:
-                    sfxPlayer.URL = "Audio/pickup_bfgcell.wav";
+                    sfxPlayer.URL = Path.GetFullPath(@"../../../src/Audio/pickup_bfgcell.wav");
                     break;
                 case SoundEffectType.AmmoPickup:
-                    sfxPlayer.URL ="Audio/pickup_ammo.wav";
+                    sfxPlayer.URL = Path.GetFullPath(@"../../../src/Audio/pickup_ammo.wav");
                     break;
                 case SoundEffectType.HealthPickup:
-                    sfxPlayer.URL = "Audio/pickup_health.wav";
+                    sfxPlayer.URL = Path.GetFullPath(@"../../../src/Audio/pickup_health.wav");
                     break;
                 case SoundEffectType.ShootBFG:
-                    sfxPlayer.URL = "Audio/shoot_bfg.wav";
+                    sfxPlayer.URL = Path.GetFullPath(@"../../../src/Audio/shoot_bfg.wav");
                     break;
                 case SoundEffectType.Death:
-                    sfxPlayer.URL = "Audio/player_death.wav";
+                    sfxPlayer.URL = Path.GetFullPath(@"../../../src/Audio/player_death.wav");
                     break;
+                case SoundEffectType.Pain:
+                    sfxPlayer.URL = Path.GetFullPath(@"../../../src/Audio/pain.wav");
+                    break;
+
             }
             if (sfxPlayer.playState != WMPPlayState.wmppsPlaying)
             {
                 sfxPlayer.controls.play();
             }
-            sfxPlayer.controls.play();
 
         }
         public void PlayMusic(string url)
@@ -195,7 +198,7 @@ namespace ConsoleSlayer
         {
             stopwatchLogic.Start();
             stopwatchRenderer.Start();
-            PlayMusic("Audio/Demon's Dance.mp3");
+            PlayMusic(sfxPlayer.URL = Path.GetFullPath(@"../../../src/Audio/Demon's Dance.mp3"));
             while(IsGameRunning && player.Alive)    
             {
                 if (stopwatchLogic.ElapsedMilliseconds > 500)   
@@ -215,7 +218,7 @@ namespace ConsoleSlayer
             consoleRenderer.RenderGame();
             if (player.Alive)
             {
-                PlayMusic("Audio/Code and Dreams.mp3");
+                PlayMusic(sfxPlayer.URL = Path.GetFullPath(@"../../../src/Audio/Code and Dreams.mp3"));
             }
             else
             {
