@@ -48,7 +48,7 @@ namespace ConsoleSlayer
             switch (soundEffectType)
             {
                 case SoundEffectType.Door:
-                    sfxPlayer.URL = "Audio/door.mp3";
+                    sfxPlayer.URL = Path.GetFullPath("Audio/door.mp3");
                     break;
                 case SoundEffectType.Shoot:
                     sfxPlayer.URL = "Audio/shoot.wav";
